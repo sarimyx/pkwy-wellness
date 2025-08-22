@@ -19,7 +19,7 @@ export function Navbar() {
         </div>
         <div className="px-5.5 space-y-1">
           <p className='font-light text-xs text-left text-slate-500'>
-            Pilates • Wellness
+            Pilates • Wellness • <strong>Pittsburgh, PA</strong>
           </p>
         </div>
       </div>
