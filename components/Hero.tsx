@@ -68,7 +68,7 @@ export function Hero() {
             SAMANTHA
           </h2>
           <a
-            href="https://instagram.com/pkwywellness"
+            href={Identity.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
