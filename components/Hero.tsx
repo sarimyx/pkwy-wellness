@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Identity } from '@/config/identity';
 import { Instagram } from 'lucide-react';
+import Link from 'next/link';
 
 export function Hero() {
   return (
@@ -60,14 +61,14 @@ export function Hero() {
       </section>
 
       <section>
-        <div className='text-center mb-6'>
+        <div className='text-center'>
           <h1 className='text-sm text-gray-400 tracking-widest'>
             MEET YOUR INSTRUCTOR
           </h1>
           <h2 className='text-3xl font-light text-gray-900'>
             SAMANTHA
           </h2>
-          <a
+          <Link
             href={Identity.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
@@ -75,7 +76,7 @@ export function Hero() {
           >
             <Instagram className="w-4 h-4" />
             <span className="text-sm font-light">Instagram</span>
-          </a>
+          </Link>
         </div>
       </section>
 

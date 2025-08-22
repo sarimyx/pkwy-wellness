@@ -16,12 +16,12 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        <main className="absolute top-0 z-[-2] h-screen w-screen transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]">
+        <main className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
           <Navbar />
-          <div className="pt-36 space-y-4">
+          <div className="pt-36 pb-8">
             {children}
-            <Footer />
           </div>
+          <Footer />
         </main>
       </body>
     </html>
