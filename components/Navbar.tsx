@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function Navbar() {
   return (
-    <header className="fixed py-1 top-0 w-full backdrop-blur-sm z-50 border-b border-gray-100 shadow-pink-200 shadow-lg">
+    <header className="fixed py-1 top-0 w-full backdrop-blur-sm z-50 border-b border-gray-100/20">
       <div>
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center">
@@ -19,7 +19,7 @@ export function Navbar() {
         </div>
         <div className="px-5.5 space-y-1">
           <p className='font-light text-xs text-left text-slate-500'>
-            Transforming lives through the power of <strong className='font-semibold'>Pilates</strong>.
+            Pilates • Wellness
           </p>
         </div>
       </div>
