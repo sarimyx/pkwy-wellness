@@ -20,11 +20,11 @@ export function Hero() {
         </div>
 
         <div className='text-center'>
-          <h1 className='text-sm text-gray-400 tracking-widest font-light'>
-            <strong>CERTIFIED</strong> PILATES INSTRUCTOR BASED IN
+          <h1 className='text-xs text-gray-400 tracking-widest'>
+            MEET YOUR INSTRUCTOR
           </h1>
           <h2 className='text-2xl font-light text-gray-900'>
-            PITTSBURGH, PA
+            SAMANTHA
           </h2>
         </div>
 
@@ -62,12 +62,6 @@ export function Hero() {
 
       <section>
         <div className='text-center'>
-          <h1 className='text-sm text-gray-400 tracking-widest'>
-            MEET YOUR INSTRUCTOR
-          </h1>
-          <h2 className='text-3xl font-light text-gray-900'>
-            SAMANTHA
-          </h2>
           <Link
             href={Identity.social.instagram}
             target="_blank"
