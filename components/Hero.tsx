@@ -11,7 +11,7 @@ export function Hero() {
       <section className='space-y-4'>
         <div className="flex justify-center items-center">
           <Image
-            src="/branding-kit/PKWY-icon-2.png"
+            src="/branding/PKWY-icon-2.png"
             alt="PKWY Wellness Instructor"
             width={100}
             height={100}
@@ -30,7 +30,7 @@ export function Hero() {
 
         <div className="flex justify-center items-center">
           <Image
-            src="/branding-kit/PKWY-instructor.png"
+            src="/branding/PKWY-instructor.png"
             alt="PKWY Wellness Instructor"
             width={250}
             height={250}
