@@ -112,7 +112,7 @@ export function Pricing() {
 
                                 <header className="text-center space-y-2">
                                     <h3 className="text-3xl font-bold text-pink-500">{pkg.name}</h3>
-                                    <div className="text-3xl font-bold text-gray-900">
+                                    <div className={`text-2xl font-semibold text-gray-900 ${Fonts.poppins.className}`}>
                                         ${pkg.price}
                                     </div>
                                 </header>
@@ -128,7 +128,7 @@ export function Pricing() {
 
                                 <Button
                                     onClick={() => handleCheckout(pkg.id)}
-                                    className={`w-full mt-6 text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
+                                    className={`w-full mt-6 text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${Fonts.poppins.className} ${
                                         pkg.popular
                                             ? 'bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 shadow-pink-200/50'
                                             : 'bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black shadow-gray-300/30'
