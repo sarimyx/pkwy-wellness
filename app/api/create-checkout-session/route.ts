@@ -1,3 +1,4 @@
+import { Identity } from '@/config/identity';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
@@ -25,16 +26,33 @@ const packages = {
 
 export async function POST(request: NextRequest) {
   try {
-    const { packageId } = await request.json();
+    const { packageId, customAmount, description, customer, paymentFor } = await request.json();
 
-    if (!packageId || !packages[packageId as keyof typeof packages]) {
+    let packageData: { name: string; price: number; description: string };
+
+    if (customAmount) {
+      // Handle custom amount payment
+      if (customAmount < 100) { // Minimum $1.00
+        return NextResponse.json(
+          { error: 'Minimum payment amount is $1.00' },
+          { status: 400 }
+        );
+      }
+
+      packageData = {
+        name: `${Identity.companyLegalName}`,
+        price: customAmount,
+        description: description || `Custom payment of $${(customAmount / 100).toFixed(2)}`
+      };
+    } else if (packageId && packages[packageId as keyof typeof packages]) {
+      // Handle package payment
+      packageData = packages[packageId as keyof typeof packages];
+    } else {
       return NextResponse.json(
-        { error: 'Invalid package ID' },
+        { error: 'Either packageId or customAmount is required' },
         { status: 400 }
       );
     }
-
-    const packageData = packages[packageId as keyof typeof packages];
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -56,8 +74,12 @@ export async function POST(request: NextRequest) {
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/`,
       metadata: {
-        packageId,
+        packageId: packageId || 'custom-payment',
         packageName: packageData.name,
+        customAmount: customAmount ? 'true' : 'false',
+        amount: packageData.price.toString(),
+        customer: customer || '',
+        paymentFor: paymentFor || '',
       },
     });
 
