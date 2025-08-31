@@ -9,7 +9,7 @@ export function Navbar() {
           <div className="flex items-center">
             <Link href="/">
               <Image
-                src="/branding-kit/PKWY-logo-transparent.png"
+                src="/branding/PKWY-logo-transparent.png"
                 width={256}
                 height={256}
                 alt="PKWY Pilates Logo"
@@ -19,7 +19,7 @@ export function Navbar() {
         </div>
         <div className="px-5.5 space-y-1">
           <p className='font-light text-xs text-left text-slate-500'>
-            Pilates • Wellness • <strong>Pittsburgh, PA</strong>
+            Wellness • Pilates • 📍 Pittsburgh, PA
           </p>
         </div>
       </div>
