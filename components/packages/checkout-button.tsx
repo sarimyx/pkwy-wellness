@@ -7,10 +7,9 @@ interface CheckoutButtonProps {
   packageId: string;
   disabled?: boolean;
   popular?: boolean;
-  price: number;
 }
 
-export function CheckoutButton({ packageId, disabled, popular, price }: CheckoutButtonProps) {
+export function CheckoutButton({ packageId, disabled, popular }: CheckoutButtonProps) {
   const handleCheckout = async () => {
     try {
       const response = await fetch('/api/create-checkout-session', {
