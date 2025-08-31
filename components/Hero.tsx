@@ -13,8 +13,8 @@ export function Hero() {
           <Image
             src="/branding/PKWY-icon-2.png"
             alt="PKWY Wellness Instructor"
-            width={100}
-            height={100}
+            width={50}
+            height={50}
             className="object-cover transition-transform duration-300 rounded-3xl"
           />
         </div>
