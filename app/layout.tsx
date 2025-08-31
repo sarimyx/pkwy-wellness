@@ -5,6 +5,9 @@ import { metadata } from "@/config/metadata";
 export { metadata };
 
 import "./globals.css";
+import { Fonts } from "@/config/fonts";
+import { FloatingBubbles } from "@/components/decoration/floating-bubbles";
+import { PinkGradientSplash } from "@/components/decoration/pink-gradient-splash";
 
 export default function RootLayout({
   children,
@@ -13,14 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
-        <div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]" />
+      <body className={`antialiased ${Fonts.poppins.className}`} >
+        <FloatingBubbles />
         <main>
           <Navbar />
-          <div className="pt-36 pb-8">
+          <div className="pt-36">
             {children}
           </div>
           <Footer />

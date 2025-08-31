@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Identity } from '@/config/identity';
 import { Instagram } from 'lucide-react';
 import Link from 'next/link';
+import { Fonts } from '@/config/fonts';
 
 export function Hero() {
   return (
@@ -11,7 +12,7 @@ export function Hero() {
       <section className='space-y-4'>
         <div className="flex justify-center items-center">
           <Image
-            src="/branding/PKWY-icon-2.png"
+            src="/branding/icon-2.png"
             alt="PKWY Wellness Instructor"
             width={50}
             height={50}
@@ -20,17 +21,17 @@ export function Hero() {
         </div>
 
         <div className='text-center'>
-          <h1 className='text-xs text-gray-400 tracking-widest'>
+          <h1 className='text-lg text-gray-400 tracking-widest'>
             MEET YOUR INSTRUCTOR
           </h1>
-          <h2 className='text-2xl font-light text-gray-900'>
+          <h2 className={`text-5xl font-light text-gray-900 ${Fonts.dancingScript.className}`}>
             SAMANTHA
           </h2>
         </div>
 
         <div className="flex justify-center items-center">
           <Image
-            src="/branding/PKWY-instructor.png"
+            src="/branding/instructor.png"
             alt="PKWY Wellness Instructor"
             width={250}
             height={250}
@@ -40,8 +41,7 @@ export function Hero() {
       </section>
 
       <section className='flex gap-2 justify-center items-center'>
-        <a href={Identity.social.instagram}
-          target="_blank"
+        <a href="#pricing"
           rel="noopener noreferrer"
         >
           <Button>
@@ -59,21 +59,6 @@ export function Hero() {
           </Button>
         </a>
       </section>
-
-      <section>
-        <div className='text-center'>
-          <Link
-            href={Identity.social.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            <Instagram className="w-4 h-4" />
-            <span className="text-sm font-light">Instagram</span>
-          </Link>
-        </div>
-      </section>
-
     </main>
   );
 }

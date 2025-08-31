@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         },
         description: "Transform your body and mind with expert Pilates instruction. Private sessions, group classes, and corporate wellness programs. Serving Pittsburgh and surrounding areas.",
         url: Identity.url,
-        images: ["/branding/PWKY-logo.png"],
+        images: ["/branding/logo.png"],
         locale: "en_US",
         type: "website",
     },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "PKWY Wellness | Pilates | Pittsburgh, PA",
         description: "Expert instruction, private sessions, and group classes.",
-        images: ["/branding/PWKY-logo.png"],
+        images: ["/branding/logo.png"],
     },
     alternates: {
         canonical: Identity.url,
