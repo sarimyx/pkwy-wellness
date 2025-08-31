@@ -84,7 +84,7 @@ export function Pricing() {
 
     return (
         <main id="pricing" className={`${Fonts.crimsonText.className}`}>
-            <section className="py-20">
+            <section>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                     <header className="text-center space-y-4 px-4">
                         <h2 className="text-4xl font-bold text-gray-900">
