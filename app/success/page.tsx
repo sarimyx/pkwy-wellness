@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export default function SuccessPage() {
-  const [packageName, setPackageName] = useState<string>('');
   const [sessionId, setSessionId] = useState<string>('');
 
   useEffect(() => {
@@ -37,13 +36,13 @@ export default function SuccessPage() {
         {/* Package Details */}
         <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            What's Next?
+            What&apos;s Next?
           </h2>
           <div className="space-y-4 text-left">
             <div className="flex items-center gap-3">
               <Calendar className="w-5 h-5 text-blue-500" />
               <span className="text-gray-700">
-                You'll receive a confirmation email with your class details
+                You&apos;ll receive a confirmation email with your class details
               </span>
             </div>
             <div className="flex items-center gap-3">

@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Identity } from '@/config/identity';
-import { Instagram } from 'lucide-react';
-import Link from 'next/link';
 import { Fonts } from '@/config/fonts';
 
 export function Hero() {

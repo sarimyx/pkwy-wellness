@@ -7,7 +7,6 @@ export { metadata };
 import "./globals.css";
 import { Fonts } from "@/config/fonts";
 import { FloatingBubbles } from "@/components/decoration/floating-bubbles";
-import { PinkGradientSplash } from "@/components/decoration/pink-gradient-splash";
 
 export default function RootLayout({
   children,
