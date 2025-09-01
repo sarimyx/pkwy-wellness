@@ -99,19 +99,19 @@ export function Pricing() {
                         {packages.map((pkg) => (
                             <article
                                 key={pkg.id}
-                                className={`relative bg-pink-200/20 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow flex flex-col ${pkg.popular ? 'ring-2 ring-pink-500' : ''
+                                className={`relative bg-orange-200/20 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow flex flex-col ${pkg.popular ? 'ring-2 ring-pink-500' : ''
                                     }`}
                             >
                                 {pkg.popular && (
                                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                        <span className="bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                                        <span className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                                             Most Popular
                                         </span>
                                     </div>
                                 )}
 
                                 <header className="text-center space-y-2">
-                                    <h3 className="text-3xl font-bold text-pink-500">{pkg.name}</h3>
+                                    <h3 className="text-3xl font-bold text-orange-500">{pkg.name}</h3>
                                     <div className={`text-2xl font-semibold text-gray-900 ${Fonts.poppins.className}`}>
                                         ${pkg.price}
                                     </div>

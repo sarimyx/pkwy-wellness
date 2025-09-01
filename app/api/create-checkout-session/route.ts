@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
             product_data: {
               name: packageData.name,
               description: packageData.description,
-              images: ['https://pkwywellness.com/branding/logo-transparent.png'], // Update with your logo URL
+              images: ['https://pkwywellness.com/branding/logo.png'], // Update with your logo URL
             },
             unit_amount: packageData.price,
           },

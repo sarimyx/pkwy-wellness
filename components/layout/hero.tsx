@@ -8,15 +8,6 @@ export function Hero() {
   return (
     <main id="home" className="space-y-8">
       <section className='space-y-4'>
-        <div className="flex justify-center items-center">
-          <Image
-            src="/branding/icon-2.png"
-            alt="PKWY Wellness Instructor"
-            width={50}
-            height={50}
-            className="object-cover transition-transform duration-300 rounded-3xl"
-          />
-        </div>
 
         <div className='text-center'>
           <h1 className='text-lg text-gray-400 tracking-widest'>
