@@ -53,7 +53,6 @@ export const packageMetadata: PackageMetadata[] = [
       'Expert Pilates instruction',
       'Flow-based movement patterns',
       'Community support',
-      'Flexible scheduling',
       'Studio access',
       '$115 after early bird period'
     ],
@@ -73,7 +72,6 @@ export const packageMetadata: PackageMetadata[] = [
       'Expert Pilates instruction',
       'Flow-based movement patterns',
       'Community support',
-      'Flexible scheduling',
       'Studio access'
     ],
     active: true, // Keep single class option available
