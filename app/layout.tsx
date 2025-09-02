@@ -4,9 +4,12 @@ import { Footer } from "@/components/layout/footer";
 import { metadata } from "@/config/metadata";
 export { metadata };
 
-import "./globals.css";
 import { Fonts } from "@/config/fonts";
 import { FloatingBubbles } from "@/components/decoration/floating-bubbles";
+
+import { Analytics } from "@vercel/analytics/next"
+
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -24,6 +27,7 @@ export default function RootLayout({
           </div>
           <Footer />
         </main>
+        <Analytics />
       </body>
     </html>
   );
