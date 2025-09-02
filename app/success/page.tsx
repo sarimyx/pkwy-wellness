@@ -142,7 +142,7 @@ export default function SuccessPage() {
               Return Home
             </Button>
           </Link>
-          <a href={Identity.social.instagram} className="w-full sm:w-auto">
+          <a href={Identity.social.instagramDM} className="w-full sm:w-auto">
             <Button variant="outline" className="w-full px-6 sm:px-8 py-3 text-sm sm:text-base">
               Contact Us
             </Button>

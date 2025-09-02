@@ -7,6 +7,7 @@ export const Identity = {
     logo: "/branding/logo.png",
     email: "contact@pkwypilates.com",
     social: { 
-        instagram: "https://www.instagram.com/pkwypilates"
+        instagram: "https://www.instagram.com/pkwypilates",
+        instagramDM: "https://www.instagram.com/direct/t/pkwypilates"
     }
 }

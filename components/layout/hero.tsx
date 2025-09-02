@@ -3,12 +3,15 @@ import { Button } from '@/components/ui/button';
 import { Identity } from '@/config/identity';
 import { Fonts } from '@/config/fonts';
 import { Instagram } from 'lucide-react';
+import { GeometryLines } from '../decoration/geometry-lines';
+import { GeometryDots } from '../decoration/geometry-dots';
 
 export function Hero() {
   return (
     <main id="home" className="space-y-8">
+      <GeometryLines />
+      <GeometryDots />
       <section className='space-y-4'>
-
         <div className='text-center'>
           <h1 className='text-lg text-gray-400 tracking-widest'>
             MEET YOUR INSTRUCTOR
@@ -40,7 +43,7 @@ export function Hero() {
           </a>
 
           <a
-            href={Identity.social.instagram}
+            href={Identity.social.instagramDM}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -52,7 +55,7 @@ export function Hero() {
 
         <div className='flex justify-center items-center'>
           <a
-            href={Identity.social.instagram}
+            href={Identity.social.instagramDM}
             target="_blank"
             rel="noopener noreferrer"
             className="transition-all duration-300 hover:scale-105 hover:brightness-110"

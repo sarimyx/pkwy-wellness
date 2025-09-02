@@ -19,7 +19,7 @@ export default function RootLayout({
         <FloatingBubbles />
         <main>
           <Navbar />
-          <div className="pt-36 bg-orange-200/40">
+          <div className="pt-36 bg-orange-200/10">
             {children}
           </div>
           <Footer />
