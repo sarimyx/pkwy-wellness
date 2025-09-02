@@ -50,8 +50,8 @@ export function Pricing() {
 
     return (
         <main id="pricing" >
-            <div className={`bg-orange-200/100 min-h-screen items-center justify-center p-5 ${Fonts.crimsonText.className}`}>
-                <div className="bg-orange-200/100 rounded-3xl w-full max-w-7xl p-8 space-y-12">
+            <div className={`flex bg-orange-200/100 min-h-screen items-center justify-center p-5 ${Fonts.crimsonText.className}`}>
+                <div className="rounded-3xl w-full max-w-7xl p-8 space-y-12">
                     <div className="text-center space-y-8">
                         <header className="space-y-4">
                             <div className="space-y-2">
