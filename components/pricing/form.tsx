@@ -51,7 +51,7 @@ export function Pricing() {
     return (
         <main id="pricing" >
             <div className={`flex bg-orange-200/100 min-h-screen items-center justify-center p-5 ${Fonts.crimsonText.className}`}>
-                <div className="rounded-3xl w-full max-w-7xl p-8 space-y-12">
+                <div className="rounded-3xl w-full max-w-7xl p-5 space-y-12">
                     <div className="text-center space-y-8">
                         <header className="space-y-4">
                             <div className="space-y-2">
@@ -99,7 +99,7 @@ export function Pricing() {
 
                                         <ul className="space-y-2 flex-grow">
                                             {pkg.features.map((feature, index) => (
-                                                <li key={index} className="flex items-center space-x-3">
+                                                <li key={index} className="flex items-center space-x-3 text-left">
                                                     <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
                                                     <span className="text-gray-700">{feature}</span>
                                                 </li>
@@ -125,13 +125,15 @@ export function Pricing() {
 
                     {/* Questions/Contact Section */}
                     <div className="text-center">
-                        <div className="max-w-2xl mx-auto space-y-2">
-                            <h3 className={`text-2xl font-semibold text-gray-800`}>
-                                Questions?
-                            </h3>
-                            <p className="text-gray-600">
-                                Have questions about our Pilates classes or need help choosing the right option for you?
-                            </p>
+                        <div className="mx-auto space-y-2">
+                            <div>
+                                <h3 className={`text-2xl font-semibold text-gray-800`}>
+                                    Questions?
+                                </h3>
+                                <p className="text-gray-600">
+                                    Have questions about our Pilates classes or need help choosing the right option for you?
+                                </p>
+                            </div>
                             <a
                                 href={Identity.social.instagramDM}
                             >
