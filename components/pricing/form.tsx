@@ -135,7 +135,7 @@ export function Pricing() {
                                 </p>
                             </div>
                             <a
-                                href={Identity.social.instagramDM}
+                                href={Identity.social.instagram}
                             >
                                 <Button className={Fonts.poppins.className}>
                                     Contact Us

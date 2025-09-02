@@ -43,7 +43,7 @@ export function Hero() {
           </a>
 
           <a
-            href={Identity.social.instagramDM}
+            href={Identity.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -55,7 +55,7 @@ export function Hero() {
 
         <div className='flex justify-center items-center'>
           <a
-            href={Identity.social.instagramDM}
+            href={Identity.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="transition-all duration-300 hover:scale-105 hover:brightness-110"
