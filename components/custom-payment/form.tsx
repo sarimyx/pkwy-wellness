@@ -128,10 +128,6 @@ export function CustomPaymentForm({ lockedAmount, customer, paymentFor }: Custom
               <Shield className="w-4 h-4 text-green-500" />
               <span>SSL Encrypted</span>
             </div>
-            <div className="flex items-center space-x-1">
-              <CreditCard className="w-4 h-4 text-blue-500" />
-              <span>Stripe Protected</span>
-            </div>
           </div>
           <p className="text-xs text-gray-500">
             Your payment information is secure and encrypted. We never store your card details.

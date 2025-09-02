@@ -3,26 +3,26 @@ import Link from 'next/link';
 
 export function Navbar() {
   return (
-    <header className="fixed py-1 top-0 w-full z-50 bg-orange-200 rounded-md">
+    <header className="fixed py-3 top-0 w-full z-50 bg-orange-300 rounded-2xl">
       {/* Backdrop with reduced opacity */}
       <div className="absolute inset-0 bg-white/70 backdrop-blur-md"></div>
       
       <div className="relative z-10">
-        <div className="flex justify-between items-center h-24">
-          <div className="flex items-center">
+        <div className="flex flex-col items-center justify-center h-16">
+          <div className="flex items-center justify-center">
             <Link href="/">
               <Image
                 src="/branding/logo.png"
-                width={256}
-                height={256}
+                width={180}
+                height={180}
                 alt="PKWY Pilates Logo"
-                className='rounded-md mt-3'
+                className='rounded-md'
               />
             </Link>
           </div>
         </div>
-        <div className="px-3 pt-4 space-y-1">
-          <p className='font-light text-xs text-left text-slate-500'>
+        <div className="px-3 pt-3 space-y-1 text-center">
+          <p className='font-light text-xs text-slate-500'>
             Wellness • Pilates • 📍 Pittsburgh, PA
           </p>
         </div>

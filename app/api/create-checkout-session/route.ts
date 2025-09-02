@@ -1,34 +1,22 @@
 import { Identity } from '@/config/identity';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { getStripePackageById, PackageMetadata } from '@/config/packages';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-08-27.basil',
 });
 
-const packages = {
-  '2-classes': {
-    name: '2 Classes Package',
-    price: 4500, // $45.00 in cents
-    description: '2 Pilates sessions with flexible scheduling'
-  },
-  '4-classes': {
-    name: '4 Classes Package',
-    price: 8500, // $85.00 in cents
-    description: '4 Pilates sessions with progress tracking'
-  },
-  '7-classes': {
-    name: '7 Classes Package',
-    price: 12500, // $125.00 in cents
-    description: '7 Pilates sessions with priority booking'
-  }
-};
-
 export async function POST(request: NextRequest) {
   try {
-    const { packageId, customAmount, description, customer, paymentFor } = await request.json();
+    const { packageId, packageData: fullPackageData, customAmount, description, customer, paymentFor } = await request.json();
 
-    let packageData: { name: string; price: number; description: string };
+    let sessionData: {
+      name: string;
+      price: number;
+      description: string;
+      metadata: Record<string, string>;
+    };
 
     if (customAmount) {
       // Handle custom amount payment
@@ -39,14 +27,68 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      packageData = {
+      sessionData = {
         name: `${Identity.companyLegalName}`,
         price: customAmount,
-        description: description || `Custom payment of $${(customAmount / 100).toFixed(2)}`
+        description: description || `Custom payment of $${(customAmount / 100).toFixed(2)}`,
+        metadata: {
+          packageId: 'custom-payment',
+          packageName: `${Identity.companyLegalName}`,
+          customAmount: 'true',
+          amount: customAmount.toString(),
+          customer: customer || '',
+          paymentFor: paymentFor || '',
+        }
       };
-    } else if (packageId && packages[packageId as keyof typeof packages]) {
-      // Handle package payment
-      packageData = packages[packageId as keyof typeof packages];
+    } else if (packageId && fullPackageData) {
+      // Handle package payment with full metadata
+      const packageMetadata = fullPackageData as PackageMetadata;
+
+      // Create rich description from package features
+      const featuresText = packageMetadata.features
+        .slice(0, 3) // Limit to first 3 features for description
+        .join(' • ');
+
+      sessionData = {
+        name: packageMetadata.subtitle || packageMetadata.displayName,
+        price: packageMetadata.price,
+        description: `${packageMetadata.classes}-class package • ${featuresText}`,
+        metadata: {
+          packageId: packageMetadata.id,
+          packageName: packageMetadata.subtitle || packageMetadata.displayName,
+          category: packageMetadata.category,
+          classes: packageMetadata.classes.toString(),
+          tag: packageMetadata.tag || '',
+          customAmount: 'false',
+          amount: packageMetadata.price.toString(),
+          previousPrice: packageMetadata.previousPrice?.toString() || '',
+          customer: customer || '',
+          paymentFor: paymentFor || '',
+        }
+      };
+    } else if (packageId) {
+      // Fallback to basic package data if full metadata not provided
+      const stripePackage = getStripePackageById(packageId);
+      if (!stripePackage) {
+        return NextResponse.json(
+          { error: `Package not found: ${packageId}` },
+          { status: 400 }
+        );
+      }
+
+      sessionData = {
+        name: stripePackage.name,
+        price: stripePackage.price,
+        description: stripePackage.description,
+        metadata: {
+          packageId: packageId,
+          packageName: stripePackage.name,
+          customAmount: 'false',
+          amount: stripePackage.price.toString(),
+          customer: customer || '',
+          paymentFor: paymentFor || '',
+        }
+      };
     } else {
       return NextResponse.json(
         { error: 'Either packageId or customAmount is required' },
@@ -61,11 +103,11 @@ export async function POST(request: NextRequest) {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: packageData.name,
-              description: packageData.description,
+              name: sessionData.name,
+              description: sessionData.description,
               images: ['https://pkwywellness.com/branding/logo.png'], // Update with your logo URL
             },
-            unit_amount: packageData.price,
+            unit_amount: sessionData.price,
           },
           quantity: 1,
         },
@@ -73,14 +115,7 @@ export async function POST(request: NextRequest) {
       mode: 'payment',
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/`,
-      metadata: {
-        packageId: packageId || 'custom-payment',
-        packageName: packageData.name,
-        customAmount: customAmount ? 'true' : 'false',
-        amount: packageData.price.toString(),
-        customer: customer || '',
-        paymentFor: paymentFor || '',
-      },
+      metadata: sessionData.metadata,
     });
 
     return NextResponse.json({ url: session.url });

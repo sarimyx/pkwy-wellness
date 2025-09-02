@@ -1,12 +1,24 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { CheckCircle, Calendar, MapPin, Phone } from 'lucide-react';
+import { CheckCircle, Calendar, MapPin, User, Receipt } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Identity } from '@/config/identity';
 import Link from 'next/link';
+
+interface CustomerDetails {
+  email: string;
+  name?: string;
+  amount: string;
+  packageName: string;
+  packageId: string;
+  paymentDate: string;
+}
 
 export default function SuccessPage() {
   const [sessionId, setSessionId] = useState<string>('');
+  const [customerDetails, setCustomerDetails] = useState<CustomerDetails | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Get session ID from URL params
@@ -14,61 +26,124 @@ export default function SuccessPage() {
     const sessionIdParam = urlParams.get('session_id');
     if (sessionIdParam) {
       setSessionId(sessionIdParam);
+      fetchCustomerDetails(sessionIdParam);
     }
   }, []);
 
+  const fetchCustomerDetails = async (sessionId: string) => {
+    try {
+      const response = await fetch(`/api/get-session-details?session_id=${sessionId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setCustomerDetails(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch customer details:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-4">
-      <div className="max-w-2xl mx-auto text-center">
-        {/* Success Icon */}
-        <div className="mb-8">
-          <CheckCircle className="w-24 h-24 text-green-500 mx-auto" />
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white p-4">
+      <div className="w-full max-w-4xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-8">
+          {/* Success Icon */}
+          <div className="mb-4">
+            <CheckCircle className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 text-green-500 mx-auto" />
+          </div>
+
+          {/* Success Message */}
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+            Payment Successful!
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 mb-6">
+            Thank you for choosing PKWY Wellness!
+          </p>
         </div>
 
-        {/* Success Message */}
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Payment Successful!
-        </h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Thank you for choosing PKWY Wellness! Your Pilates classes have been confirmed.
-        </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Customer Details */}
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <User className="w-5 h-5 text-blue-500" />
+              Payment Details
+            </h2>
+            {loading ? (
+              <div className="space-y-3">
+                <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+              </div>
+            ) : customerDetails ? (
+              <div className="space-y-3 text-sm sm:text-base">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Email:</span>
+                  <span className="font-medium text-gray-900">{customerDetails.email}</span>
+                </div>
+                {customerDetails.name && (
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Name:</span>
+                    <span className="font-medium text-gray-900">{customerDetails.name}</span>
+                  </div>
+                )}
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Package:</span>
+                  <span className="font-medium text-gray-900">{customerDetails.packageName}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Amount:</span>
+                  <span className="font-medium text-gray-900">${customerDetails.amount}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Date:</span>
+                  <span className="font-medium text-gray-900">{new Date(customerDetails.paymentDate).toLocaleDateString()}</span>
+                </div>
+              </div>
+            ) : (
+              <p className="text-gray-600 text-sm">Payment details will be sent to your email.</p>
+            )}
+          </div>
 
-        {/* Package Details */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            What&apos;s Next?
-          </h2>
-          <div className="space-y-4 text-left">
-            <div className="flex items-center gap-3">
+          {/* What's Next */}
+          <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <Calendar className="w-5 h-5 text-blue-500" />
-              <span className="text-gray-700">
-                You&apos;ll receive a confirmation email with your class details
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <MapPin className="w-5 h-5 text-blue-500" />
-              <span className="text-gray-700">
-                Classes are held at our Pittsburgh studio
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-blue-500" />
-              <span className="text-gray-700">
-                Contact us to schedule your first class
-              </span>
+              What&apos;s Next?
+            </h2>
+            <div className="space-y-3 text-sm sm:text-base">
+              <div className="flex items-start gap-3">
+                <Receipt className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700">
+                  Confirmation email sent with receipt and class details
+                </span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Calendar className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700">
+                  Check your email for scheduling information
+                </span>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700">
+                  Classes held at our Pittsburgh studio
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/">
-            <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md mx-auto mb-6">
+          <Link href="/" className="w-full sm:w-auto">
+            <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white px-6 sm:px-8 py-3 text-sm sm:text-base">
               Return Home
             </Button>
           </Link>
-          <a href="mailto:hello@pkwywellness.com">
-            <Button variant="outline" className="px-8 py-3">
+          <a href={Identity.social.instagram} className="w-full sm:w-auto">
+            <Button variant="outline" className="w-full px-6 sm:px-8 py-3 text-sm sm:text-base">
               Contact Us
             </Button>
           </a>
@@ -76,7 +151,7 @@ export default function SuccessPage() {
 
         {/* Session ID for reference */}
         {sessionId && (
-          <p className="text-sm text-gray-500 mt-8">
+          <p className="text-xs sm:text-sm text-gray-500 text-center break-all px-4">
             Reference: {sessionId}
           </p>
         )}

@@ -4,7 +4,7 @@ import { Pricing } from '@/components/packages/form';
 
 export default function Home() {
   return (
-    <div className="space-y-4 py-4">
+    <div className="space-y-4 pt-4">
       <Hero />
       <Separator />
       <Pricing />

@@ -1,55 +1,84 @@
-// Package data configuration - UI Metadata (Stripe products fetched dynamically)
+// Package data configuration - Single Source of Truth
 export interface PackageMetadata {
   id: string;
+  category: string; // e.g., '6-week-flow', 'private-sessions', 'workshops'
   stripeProductId?: string; // Link to Stripe product ID
   displayName: string; // For UI display
+  subtitle?: string; // Main title to display prominently
   classes: number;
+  price: number; // Price in cents for Stripe
+  previousPrice?: number; // Optional previous price in cents for showing discount
   features: string[];
+  active: boolean; // Controls visibility - easily toggle offers on/off
+  tag?: string; // Optional tag to display above the card (e.g., 'Early Bird', 'Limited Time')
+  tagColor?: string; // Optional tag color class (e.g., 'bg-red-500', 'bg-blue-500')
   popular?: boolean;
   sortOrder?: number; // For ordering packages
 }
 
-// UI metadata - defines how packages appear and behave in the app
-// sortOrder field controls display order (lower numbers appear first)
+// Active packages - easily toggle visibility with the 'active' boolean
 export const packageMetadata: PackageMetadata[] = [
   {
-    id: '2-classes',
-    displayName: '2 Classes',
-    classes: 2,
+    id: '6-week-early-bird',
+    category: '6-week-flow',
+    displayName: '6 Classes',
+    subtitle: '6-Week Series',
+    classes: 6,
+    price: 10000, // $100.00 in cents
+    previousPrice: 11500, // $115.00 in cents (regular price)
     features: [
-      '2 Pilates sessions',
+      '6-week women\'s series',
+      'Expert Pilates instruction',
+      'Flow-based movement patterns',
+      'Community support',
       'Flexible scheduling',
-      'Expert instruction',
-      'Studio access'
+      'Studio access',
+      'Limited time offer (first 3 days only)'
     ],
+    active: true, // Currently active - easily toggle to false to hide
+    tag: 'Early Bird',
+    tagColor: 'bg-red-500',
+    popular: true,
     sortOrder: 1
   },
+  // Future packages - set active: true when ready to launch
   {
-    id: '4-classes',
-    displayName: '4 Classes',
-    classes: 4,
+    id: '6-week-regular',
+    category: '6-week-flow',
+    displayName: '6-Week Flow for EveryBODY (Regular)',
+    classes: 6,
+    price: 11500, // $115.00 in cents
     features: [
-      '4 Pilates sessions',
+      '6-week women\'s series',
+      'Expert Pilates instruction',
+      'Flow-based movement patterns',
+      'Community support',
       'Flexible scheduling',
-      'Expert instruction',
       'Studio access',
-      'Progress tracking'
+      '$115 after early bird period'
     ],
+    active: false, // Hidden for now - set to true when early bird ends
     sortOrder: 2
   },
   {
-    id: '7-classes',
-    displayName: '7 Classes',
-    classes: 7,
+    id: '6-week-drop-in',
+    category: '6-week-flow',
+    displayName: '1 Class',
+    subtitle: 'Individual Session',
+    classes: 1,
+    price: 2500, // $25.00 in cents
     features: [
-      '7 Pilates sessions',
+      'Individual class access',
+      'Within the 6-week series',
+      'Expert Pilates instruction',
+      'Flow-based movement patterns',
+      'Community support',
       'Flexible scheduling',
-      'Expert instruction',
-      'Studio access',
-      'Progress tracking',
-      'Priority booking'
+      'Studio access'
     ],
-    popular: true,
+    active: true, // Keep single class option available
+    tag: 'Drop-In',
+    tagColor: 'bg-red-500',
     sortOrder: 3
   }
 ];
@@ -69,27 +98,33 @@ export interface PackageData {
 
 // Utility functions for working with package metadata
 export function getPackageMetadataById(id: string): PackageMetadata | undefined {
-  return packageMetadata.find(pkg => pkg.id === id);
+  return packageMetadata.find(pkg => pkg.id === id && pkg.active);
 }
 
 export function getAllPackageMetadata(): PackageMetadata[] {
-  return packageMetadata.sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
+  return packageMetadata
+    .filter(pkg => pkg.active)
+    .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
 }
 
 export function getPopularPackageMetadata(): PackageMetadata | undefined {
-  return packageMetadata.find(pkg => pkg.popular);
+  return packageMetadata.find(pkg => pkg.active && pkg.popular);
 }
 
-/**
- * Get packages sorted by sortOrder for debugging
- * Useful for verifying the sort order is working correctly
- */
-export function getSortedPackageMetadata(): PackageMetadata[] {
-  return [...packageMetadata].sort((a, b) => {
-    const aOrder = a.sortOrder || 0;
-    const bOrder = b.sortOrder || 0;
-    return aOrder - bOrder;
-  });
+// Category-based utilities for scalability
+export function getPackagesByCategory(category: string): PackageMetadata[] {
+  return packageMetadata
+    .filter(pkg => pkg.active && pkg.category === category)
+    .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
+}
+
+export function getAllCategories(): string[] {
+  return [...new Set(packageMetadata.filter(pkg => pkg.active).map(pkg => pkg.category))];
+}
+
+// Admin utilities (for managing packages)
+export function getAllPackageMetadataAdmin(): PackageMetadata[] {
+  return [...packageMetadata].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
 }
 
 // Legacy functions for backward compatibility (will be updated to use Stripe data)
@@ -118,14 +153,28 @@ export function getPopularPackage(): PackageData | undefined {
   return packages.find(pkg => pkg.popular);
 }
 
-// For API/Stripe usage - returns simplified package data (will be updated to fetch from Stripe)
+// For API/Stripe usage - returns active package data in the format expected by Stripe API
 export function getStripePackages() {
-  return packages.reduce((acc, pkg) => {
-    acc[pkg.id] = {
-      name: pkg.name,
-      price: pkg.priceInCents,
-      description: pkg.description
-    };
-    return acc;
-  }, {} as Record<string, { name: string; price: number; description: string }>);
+  return packageMetadata
+    .filter(pkg => pkg.active)
+    .reduce((acc, pkg) => {
+      acc[pkg.id] = {
+        name: pkg.displayName,
+        price: pkg.price,
+        description: `${pkg.classes === 6 ? '6-week series' : `${pkg.classes} class${pkg.classes > 1 ? 'es' : ''}`} - Expert Pilates instruction`
+      };
+      return acc;
+    }, {} as Record<string, { name: string; price: number; description: string }>);
+}
+
+// Get active package by ID for Stripe API usage
+export function getStripePackageById(id: string): { name: string; price: number; description: string } | undefined {
+  const pkg = packageMetadata.find(p => p.id === id && p.active);
+  if (!pkg) return undefined;
+
+  return {
+    name: pkg.displayName,
+    price: pkg.price,
+    description: `${pkg.classes === 6 ? '6-week series' : `${pkg.classes} class${pkg.classes > 1 ? 'es' : ''}`} - Expert Pilates instruction`
+  };
 }
