@@ -1,6 +1,6 @@
 import { Separator } from '@/components/decoration/separator';
 import { Hero } from '@/components/layout/hero';
-import { Pricing } from '@/components/packages/form';
+import { Pricing } from '@/components/pricing/form';
 
 export default function Home() {
   return (
