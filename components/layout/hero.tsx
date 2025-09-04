@@ -16,7 +16,7 @@ export function Hero() {
           <h1 className='text-lg text-gray-400 tracking-widest'>
             MEET YOUR INSTRUCTOR
           </h1>
-          <h2 className={`text-5xl font-light text-gray-900 ${Fonts.dancingScript.className}`}>
+          <h2 className={`text-6xl font-light text-gray-900 ${Fonts.quicksand.className}`}>
             SAMANTHA
           </h2>
         </div>
