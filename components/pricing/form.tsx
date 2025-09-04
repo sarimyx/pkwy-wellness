@@ -51,20 +51,41 @@ export function Pricing() {
     return (
         <main id="pricing" >
             <div className={`flex bg-orange-200/100 min-h-screen items-center justify-center p-5 ${Fonts.crimsonText.className}`}>
-                <div className="rounded-3xl w-full max-w-7xl p-5 space-y-12">
-                    <div className="text-center space-y-8">
+                <div className="rounded-3xl md:max-w-2xl py-2 space-y-12">
+                    <div className="text-center space-y-12">
                         <header className="space-y-4">
                             <div className="space-y-2">
                                 <h1 className='text-5xl text-gray-600 tracking-widest'>
                                     6 WEEK FLOW
                                 </h1>
-                                <h2 className={`text-4xl font-light tracking-widest text-gray-900 ${Fonts.dancingScript.className}`}>
+                                <h2 className={`text-4xl font-light tracking-widest text-gray-900 ${Fonts.quicksand.className}`}>
                                     For EveryBODY
                                 </h2>
                             </div>
                             <h3 className='text-xl text-orange-600 tracking-widest'>
                                 Women&apos;s series
                             </h3>
+                            <p className='text-gray-600'>
+                                As part of our 6-Week Women’s Series, we’ll begin with a Body Assessment designed to give you a clear picture of where you’re starting and a way to celebrate your progress at the end.
+                            </p>
+                            <div className='text-gray-600'>
+                                The assessment highlights four key areas:
+                                <p>
+                                    <strong>Balance</strong>: how steady and grounded you feel
+                                </p>
+                                <p>
+                                    <strong>Core strength</strong>: how deeply your core engages with control
+                                </p>
+                                <p>
+                                    <strong>Flexibility</strong>: length and ease of movement, especially in the hamstrings
+                                </p>
+                                <p>
+                                    <strong>Mobility</strong>: the freedom and comfort of your shoulder movement
+                                </p>
+                            </div>
+                            <p className='text-gray-600'>
+                                This is not about judgment or numbers - it’s about awareness, growth, and feeling stronger in your own body. We’ll repeat the assessment in Week 6 so you can see and feel how far you’ve come.
+                            </p>
                         </header>
 
                         <div className="flex justify-center">
