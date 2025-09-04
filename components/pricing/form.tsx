@@ -6,6 +6,8 @@ import { Check } from 'lucide-react';
 import { Fonts } from '@/config/fonts';
 import { getAllPackageMetadata } from '@/config/packages';
 import { Identity } from '@/config/identity';
+import { Separator } from '../decoration/separator';
+import Image from 'next/image';
 
 export function Pricing() {
     const packages = getAllPackageMetadata();
@@ -51,68 +53,136 @@ export function Pricing() {
     return (
         <main id="pricing" >
             <div className={`flex bg-orange-200/100 min-h-screen items-center justify-center p-5 ${Fonts.crimsonText.className}`}>
-                <div className="rounded-3xl md:max-w-2xl py-2 space-y-12">
+                <div className="rounded-3xl md:max-w-2xl max-w-md py-2 space-y-12">
                     <div className="text-center space-y-12">
                         <header className="space-y-4">
+                            <h2 className={`text-lg font-light tracking-widest text-amber-900 ${Fonts.quicksand.className}`}>
+                                PKWY Wellness x Pittsburgh Pilates
+                            </h2>
                             <div className="space-y-2">
-                                <h1 className='text-5xl text-gray-600 tracking-widest'>
+                                <h1 className='text-5xl text-amber-900 font-bold tracking-widest'>
                                     6 WEEK FLOW
                                 </h1>
-                                <h2 className={`text-4xl font-light tracking-widest text-gray-900 ${Fonts.quicksand.className}`}>
+                                <h2 className={`text-4xl font-light tracking-widest text-amber-900 ${Fonts.quicksand.className}`}>
                                     For EveryBODY
                                 </h2>
                             </div>
-                            <h3 className='text-xl text-orange-600 tracking-widest'>
+                            <h3 className='text-xl text-pink-600 tracking-widest'>
                                 Women&apos;s series
                             </h3>
-                            <p className='text-gray-600'>
-                                As part of our 6-Week Women’s Series, we’ll begin with a Body Assessment designed to give you a clear picture of where you’re starting and a way to celebrate your progress at the end.
+                            <p className='text-amber-900 font-semibold text-lg'>
+                                This 6-week series is designed to build strength, balance, and confidence in a supportive space
+                                where women can grow, connect, and feel stronger from the inside out.
                             </p>
-                            <div className='text-gray-600'>
-                                The assessment highlights four key areas:
-                                <p>
-                                    <strong>Balance</strong>: how steady and grounded you feel
+
+                            <section className="bg-orange-300/30 rounded-2xl p-6 shadow-md space-y-6">
+                                <h3 className="text-2xl font-semibold text-amber-900">
+                                    Instructors
+                                </h3>
+
+                                <div className="flex flex-col md:flex-row items-center gap-6">
+                                    {/* Samantha */}
+                                    <div className="flex flex-col items-center text-center">
+                                        <Image
+                                            src="/instructors/samantha.png"
+                                            alt="Tabytha Camille Bates"
+                                            width={128}
+                                            height={128}
+                                            className="w-32 h-32 rounded-full object-cover object-top shadow-lg"
+                                        />
+                                        <span className="mt-2 font-semibold text-amber-900">Samantha Syed</span>
+                                        <span className="text-gray-600 text-sm text-center">
+                                            <a href={Identity.social.instagram} target="_blank" className="text-blue-600 hover:underline">
+                                                @pkwypilates
+                                            </a>{" "} — a dedicated gym enthusiast since 2011 whose journey into self-knowledge and spiritual growth led her to obtaining her Pilates certification and holistic wellness.
+                                        </span>
+                                    </div>
+
+                                    {/* Tabytha */}
+                                    <div className="flex flex-col items-center text-center">
+                                        <Image
+                                            src="/instructors/tabytha.png"
+                                            alt="Tabytha Camille Bates"
+                                            className="w-32 h-32 rounded-full object-cover shadow-lg"
+                                            width={128}
+                                            height={128}
+                                        />
+                                        <span className="mt-2 font-semibold text-amber-900">Tabytha Camille Bates</span>
+                                        <span className="text-gray-600 text-sm text-center">
+                                            <a href="https://instagram.com/pittsburghpilates" target="_blank" className="text-blue-600 hover:underline">
+                                                @pittsburghpilates
+                                            </a>{" "}
+                                            — a seasoned instructor with over 15 years of experience blending dance, education, and Pilates.
+                                        </span>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* Assessment Section */}
+                            <section className="bg-orange-300/30 rounded-2xl p-6 shadow-md space-y-4">
+                                <h3 className="text-2xl font-semibold text-amber-900">
+                                    Body Assessment
+                                </h3>
+
+                                <p className='text-gray-600 font-light'>
+                                    We’ll begin with a Body Assessment designed to give you a clear picture of where you’re starting and a way to celebrate your progress at the end. The assessment highlights four key areas:
                                 </p>
-                                <p>
-                                    <strong>Core strength</strong>: how deeply your core engages with control
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <div className="bg-amber-900/10 border border-amber-900 shadow-lg rounded-lg p-3">
+                                        <h4 className="font-semibold text-amber-900 mb-1">Balance</h4>
+                                        <p className="text-gray-700 text-sm">how steady and grounded you feel</p>
+                                    </div>
+
+                                    <div className="bg-amber-900/10 border border-amber-900 shadow-lg rounded-lg p-3">
+                                        <h4 className="font-semibold text-amber-900 mb-1">Core strength</h4>
+                                        <p className="text-gray-700 text-sm">how deeply your core engages with control</p>
+                                    </div>
+
+                                    <div className="bg-amber-900/10 border border-amber-900 shadow-lg rounded-lg p-3">
+                                        <h4 className="font-semibold text-amber-900 mb-1">Flexibility</h4>
+                                        <p className="text-gray-700 text-sm">length and ease of movement, especially in the hamstrings</p>
+                                    </div>
+
+                                    <div className="bg-amber-900/10 border border-amber-900 shadow-lg rounded-lg p-3">
+                                        <h4 className="font-semibold text-amber-900 mb-1">Mobility</h4>
+                                        <p className="text-gray-700 text-sm">the freedom and comfort of your shoulder movement</p>
+                                    </div>
+                                </div>
+
+                                <p className="text-gray-700 italic">
+                                    This is not about judgment or numbers - it&apos;s about awareness, growth, and feeling stronger in your own body. We&apos;ll repeat the assessment in Week 6 so you can see and feel how far you&apos;ve come.
                                 </p>
-                                <p>
-                                    <strong>Flexibility</strong>: length and ease of movement, especially in the hamstrings
-                                </p>
-                                <p>
-                                    <strong>Mobility</strong>: the freedom and comfort of your shoulder movement
-                                </p>
-                            </div>
-                            <p className='text-gray-600'>
-                                This is not about judgment or numbers - it’s about awareness, growth, and feeling stronger in your own body. We’ll repeat the assessment in Week 6 so you can see and feel how far you’ve come.
-                            </p>
+                            </section>
+                            <Separator />
                         </header>
+
 
                         <div className="flex justify-center">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl place-items-stretch">
                                 {packages.map((pkg) => (
                                     <article
                                         key={pkg.id}
-                                        className={`relative bg-orange-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow flex flex-col w-full max-w-sm h-full ${pkg.id === '6-week-early-bird' ? 'ring-2 ring-red-500' : ''
+                                        className={`relative bg-amber-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow flex flex-col w-full max-w-sm h-full ${pkg.id === '6-week-early-bird' ? 'ring-2 ring-amber-500' : ''
                                             }`}
                                     >
                                         {pkg.tag && (
                                             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                                <span className={`${pkg.tagColor || 'bg-red-500'} text-white px-4 py-2 rounded-full text-sm font-semibold`}>
+                                                <span className={`${pkg.tagColor || 'bg-amber-500'} text-white px-4 py-2 rounded-full text-sm font-semibold`}>
                                                     {pkg.tag}
                                                 </span>
                                             </div>
                                         )}
 
                                         <header className="text-center space-y-2">
-                                            <h3 className="text-3xl font-bold text-orange-500">{pkg.subtitle || pkg.displayName}</h3>
+                                            <h3 className="text-3xl font-bold text-amber-900">{pkg.subtitle || pkg.displayName}</h3>
                                             <div className={`text-lg font-semibold ${Fonts.poppins.className}`}>
                                                 {pkg.previousPrice && (
-                                                    <span className="text-gray-400 line-through mr-2">
+                                                    <span className="text-amber-900/70 line-through mr-2">
                                                         {formatPrice(pkg.previousPrice)}
                                                     </span>
                                                 )}
-                                                <span className="text-gray-900">
+                                                <span className="text-amber-900/70">
                                                     {formatPrice(pkg.price)}
                                                 </span>
                                             </div>
@@ -127,12 +197,12 @@ export function Pricing() {
                                             ))}
                                         </ul>
 
-                                        <div className="mt-auto pt-8">
+                                        <div className="pt-8">
                                             <Button
                                                 onClick={() => handleCheckout(pkg.id)}
-                                                className={`w-full text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${Fonts.poppins.className} ${pkg.id === '6-week-early-bird'
-                                                    ? 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-red-200/50'
-                                                    : 'bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black shadow-gray-300/30'
+                                                className={`${Fonts.poppins.className} hover:brightness-110 w-full font-semibold ${pkg.id === '6-week-early-bird'
+                                                    ? 'bg-gradient-to-r from-amber-900 to-amber-700'
+                                                    : 'bg-gradient-to-r from-amber-800 to-amber-900'
                                                     }`}
                                             >
                                                 Purchase
@@ -148,7 +218,7 @@ export function Pricing() {
                     <div className="text-center">
                         <div className="mx-auto space-y-2">
                             <div>
-                                <h3 className={`text-2xl font-semibold text-gray-800`}>
+                                <h3 className={`text-2xl font-semibold text-amber-800`}>
                                     Questions?
                                 </h3>
                                 <p className="text-gray-600">
@@ -158,8 +228,8 @@ export function Pricing() {
                             <a
                                 href={Identity.social.instagram}
                             >
-                                <Button className={Fonts.poppins.className}>
-                                    Contact Us
+                                <Button className={Fonts.quicksand.className}>
+                                    Contact
                                 </Button>
                             </a>
                         </div>

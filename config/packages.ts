@@ -37,7 +37,7 @@ export const packageMetadata: PackageMetadata[] = [
     ],
     active: true, // Currently active - easily toggle to false to hide
     tag: 'Early Bird',
-    tagColor: 'bg-red-500',
+    tagColor: 'bg-amber-900',
     popular: true,
     sortOrder: 1
   },
@@ -76,7 +76,7 @@ export const packageMetadata: PackageMetadata[] = [
     ],
     active: true, // Keep single class option available
     tag: 'Drop-In',
-    tagColor: 'bg-red-500',
+    tagColor: 'bg-amber-900',
     sortOrder: 3
   }
 ];
