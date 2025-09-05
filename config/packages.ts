@@ -65,8 +65,8 @@ export const packageMetadata: PackageMetadata[] = [
     price: 2500, // $25.00 in cents
     features: [
       'Individual class access',
-      'Within the 6-week series',
       'Expert Pilates instruction',
+      'Within the 6-week series',
       'Flow-based movement patterns',
       'Community support',
     ],
