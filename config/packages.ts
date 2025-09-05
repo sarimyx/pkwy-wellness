@@ -32,7 +32,6 @@ export const packageMetadata: PackageMetadata[] = [
       '6-week women\'s series',
       'Flow-based movement patterns',
       'Community support',
-      'Studio access',
     ],
     active: true, // Currently active - easily toggle to false to hide
     tag: 'Early Bird',
