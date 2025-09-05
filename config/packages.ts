@@ -27,13 +27,12 @@ export const packageMetadata: PackageMetadata[] = [
     price: 10000, // $100.00 in cents
     previousPrice: 11500, // $115.00 in cents (regular price)
     features: [
-      '6-week women\'s series',
+      'Limited time offer',
       'Expert Pilates instruction',
+      '6-week women\'s series',
       'Flow-based movement patterns',
       'Community support',
-      'Flexible scheduling',
       'Studio access',
-      'Limited time offer (first 3 days only)'
     ],
     active: true, // Currently active - easily toggle to false to hide
     tag: 'Early Bird',
