@@ -52,7 +52,6 @@ export const packageMetadata: PackageMetadata[] = [
       'Expert Pilates instruction',
       'Flow-based movement patterns',
       'Community support',
-      'Studio access',
       '$115 after early bird period'
     ],
     active: false, // Hidden for now - set to true when early bird ends
@@ -71,7 +70,6 @@ export const packageMetadata: PackageMetadata[] = [
       'Expert Pilates instruction',
       'Flow-based movement patterns',
       'Community support',
-      'Studio access'
     ],
     active: true, // Keep single class option available
     tag: 'Drop-In',
