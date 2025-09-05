@@ -2,12 +2,13 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import { Check, Instagram } from 'lucide-react';
 import { Fonts } from '@/config/fonts';
 import { getAllPackageMetadata } from '@/config/packages';
 import { Identity } from '@/config/identity';
 import { Separator } from '../decoration/separator';
 import Image from 'next/image';
+import { Amex, Applepay, Discover, Mastercard, Visa } from 'react-pay-icons';
 
 export function Pricing() {
     const packages = getAllPackageMetadata();
@@ -80,40 +81,58 @@ export function Pricing() {
                                     Instructors
                                 </h3>
 
-                                <div className="flex flex-col md:flex-row items-center gap-6">
+                                <div className="flex flex-col md:flex-row items-stretch gap-6">
                                     {/* Samantha */}
-                                    <div className="flex flex-col items-center text-center">
+                                    <div className="flex flex-col items-center text-center flex-1">
                                         <Image
                                             src="/instructors/samantha.png"
-                                            alt="Tabytha Camille Bates"
+                                            alt="Samantha Syed"
                                             width={128}
                                             height={128}
                                             className="w-32 h-32 rounded-full object-cover object-top shadow-lg"
                                         />
-                                        <span className="mt-2 font-semibold text-amber-900">Samantha Syed</span>
-                                        <span className="text-gray-600 text-sm text-center">
-                                            <a href={Identity.social.instagram} target="_blank" className="text-blue-600 hover:underline">
+                                        <span className="mt-2 font-semibold text-amber-900 text-lg">Samantha Syed</span>
+
+                                        <a href={Identity.social.instagram} target="_blank">
+                                            <Button
+                                                variant="outline"
+                                                className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full border-2 border-pink-300 hover:border-pink-500 hover:bg-pink-50 transition-all duration-300 brightness-105 text-sm"
+                                            >
+                                                <Instagram className="w-4 h-4 text-pink-500 hover:text-pink-600 transition-colors duration-300" />
                                                 @pkwypilates
-                                            </a>{" "} — a dedicated gym enthusiast since 2011 whose journey into self-knowledge and spiritual growth led her to obtaining her Pilates certification and holistic wellness.
-                                        </span>
+                                            </Button>
+                                        </a>
+
+                                        <p className="mt-2 text-gray-600 text-sm">
+                                            Dedicated gym enthusiast since 2011 whose journey into self-knowledge and spiritual growth led her to obtaining her Pilates certification and holistic wellness.
+                                        </p>
                                     </div>
 
                                     {/* Tabytha */}
-                                    <div className="flex flex-col items-center text-center">
+                                    <div className="flex flex-col items-center text-center flex-1">
                                         <Image
                                             src="/instructors/tabytha.png"
                                             alt="Tabytha Camille Bates"
-                                            className="w-32 h-32 rounded-full object-cover shadow-lg"
                                             width={128}
                                             height={128}
+                                            className="w-32 h-32 rounded-full object-cover object-bottom shadow-lg"
                                         />
-                                        <span className="mt-2 font-semibold text-amber-900">Tabytha Camille Bates</span>
-                                        <span className="text-gray-600 text-sm text-center">
-                                            <a href="https://instagram.com/pittsburghpilates" target="_blank" className="text-blue-600 hover:underline">
+
+                                        <span className="mt-2 font-semibold text-amber-900 text-lg">Tabytha Camille Bates</span>
+
+                                        <a href="https://instagram.com/pittsburghpilates" target="_blank">
+                                            <Button
+                                                variant="outline"
+                                                className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full border-2 border-pink-300 hover:border-pink-500 hover:bg-pink-50 transition-all duration-300 brightness-105 text-sm"
+                                            >
+                                                <Instagram className="w-4 h-4 text-pink-500 hover:text-pink-600 transition-colors duration-300" />
                                                 @pittsburghpilates
-                                            </a>{" "}
-                                            — a seasoned instructor with over 15 years of experience blending dance, education, and Pilates.
-                                        </span>
+                                            </Button>
+                                        </a>
+
+                                        <p className="mt-2 text-gray-600 text-sm">
+                                            A seasoned instructor with over 15 years of experience blending dance, education, and Pilates.
+                                        </p>
                                     </div>
                                 </div>
                             </section>
@@ -125,7 +144,7 @@ export function Pricing() {
                                 </h3>
 
                                 <p className='text-gray-600 font-light'>
-                                    We’ll begin with a Body Assessment designed to give you a clear picture of where you’re starting and a way to celebrate your progress at the end. The assessment highlights four key areas:
+                                    We&apos;ll begin with a Body Assessment designed to give you a clear picture of where you&apos;re starting and a way to celebrate your progress at the end. The assessment highlights four key areas:
                                 </p>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -155,10 +174,18 @@ export function Pricing() {
                                 </p>
                             </section>
                             <Separator />
+                            <div className="space-y-2 text-center">
+                                <h1 className={`text-4xl text-gray-500 font-ultralight tracking-widest ${Fonts.quicksand.className}`}>
+                                    JOIN US NOW
+                                </h1>
+                                <p className="text-gray-600 text-lg">
+                                    Your journey to balance, confidence, and empowerment starts today.
+                                </p>
+                            </div>
                         </header>
 
-
                         <div className="flex justify-center">
+
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl place-items-stretch">
                                 {packages.map((pkg) => (
                                     <article
@@ -213,6 +240,23 @@ export function Pricing() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Payment Methods Section */}
+                    {/* Payment Methods Section */}
+                    <div className="text-center mt-6 space-y-2">
+                        <div className="flex justify-center items-center space-x-2">
+                            <Applepay className="w-10 h-10" />
+                            <Visa className="w-10 h-10" />
+                            <Mastercard className="w-10 h-10" />
+                            <Discover className="w-10 h-10" />
+                            <Amex className="w-10 h-10" />
+                        </div>
+                        <p className="text-gray-600 text-sm mt-2">
+                            All payments securely processed by <span className="font-semibold text-gray-800">Stripe</span>.
+                        </p>
+                    </div>
+
+                    <Separator />
 
                     {/* Questions/Contact Section */}
                     <div className="text-center">

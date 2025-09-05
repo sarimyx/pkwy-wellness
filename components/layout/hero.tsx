@@ -32,12 +32,12 @@ export function Hero() {
         </div>
       </section>
 
-      <section className='space-y-4'>
+      <section className={`space-y-4 ${Fonts.quicksand.className}`}>
         <div className='flex gap-2 justify-center items-center'>
           <a href="#pricing"
             rel="noopener noreferrer"
           >
-            <Button>
+            <Button className='font-bold'>
               Book a Class
             </Button>
           </a>
@@ -61,11 +61,11 @@ export function Hero() {
             className="transition-all duration-300 hover:scale-105 hover:brightness-110"
           >
             <Button
-              variant='outline'
-              size='icon'
-              className="w-10 h-10 rounded-full border-2 border-pink-300 hover:border-pink-500 hover:bg-pink-50 transition-all duration-300 brightness-105"
+              variant="outline"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-pink-300 hover:border-pink-500 hover:bg-pink-50 transition-all duration-300 brightness-105"
             >
               <Instagram className="w-5 h-5 text-pink-500 hover:text-pink-600 transition-colors duration-300" />
+              <span className="text-pink-500 font-medium">@pkwypilates</span>
             </Button>
           </a>
         </div>
