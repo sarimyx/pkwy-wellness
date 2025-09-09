@@ -1,11 +1,11 @@
 export const Identity = {
     name: "PKWY Pilates",
     companyName: "PKWY Wellness",
-    companyLegalName: "PKWY Wellness, LLC",
+    companyLegalName: "PKWY Wellness LLC",
     url: "https://pkwywellness.com",
     description: "Transforming lives through the power of Pilates. Based in Pittsburgh, PA.",
     logo: "/branding/logo.png",
-    email: "contact@pkwypilates.com",
+    email: "contact@pkwywellness.com",
     social: { 
         instagram: "https://www.instagram.com/pkwypilates",
         instagramDM: "https://www.instagram.com/direct/t/pkwypilates"
