@@ -246,17 +246,16 @@ export function Pricing() {
                         <p className='text-lg font-semibold text-amber-900'>Please Note</p>
                         <div className="space-y-2">
                             <p className="text-gray-600 text-sm">
-                                Classes will be held in an upstairs space at the community center.
-                                Participants need to be able to climb two flights of stairs to access the workout area.
+                                <strong>Classes will be held in an upstairs space at the community center.</strong> {" "} Participants need to be able to climb two flights of stairs to access the workout area.
                             </p>
                             <p className="text-gray-600 text-sm">
-                                Our address is {Identity.address.complete}
+                                Our address is <strong>{Identity.address.complete}</strong> (Google Maps: <a href={Identity.address.googleMaps} target="_blank" className="text-blue-500">Link</a>, Apple Maps: <a href={Identity.address.appleMaps} target="_blank" className="text-blue-500">Link</a>)
                             </p>
                         </div>
                     </div>
 
                     {/* Payment Methods Section */}
-                    <div className="text-center mt-6 space-y-2">
+                    <div className="text-center space-y-2">
                         <div className="flex justify-center items-center space-x-2">
                             <Applepay className="w-10 h-10" />
                             <Visa className="w-10 h-10" />
@@ -264,7 +263,7 @@ export function Pricing() {
                             <Discover className="w-10 h-10" />
                             <Amex className="w-10 h-10" />
                         </div>
-                        <p className="text-gray-600 text-sm mt-2">
+                        <p className="text-gray-600 text-sm">
                             All payments securely processed by <span className="font-semibold text-gray-800">Stripe</span>.
                         </p>
                     </div>

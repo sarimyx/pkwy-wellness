@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { CheckCircle, Calendar, MapPin, User, Receipt } from 'lucide-react';
+import { CheckCircle, Calendar, User, Receipt } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Identity } from '@/config/identity';
 import Link from 'next/link';
