@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-amber-800 mb-4">1. Introduction</h2>
               <p className="mb-4">
-                {Identity.companyName} ("we," "our," or "us") is committed to protecting your privacy. 
+                {Identity.companyName} (&apos;we,&apos; &apos;our,&apos; or &apos;us&apos;) is committed to protecting your privacy. 
                 This Privacy Policy explains how we collect, use, disclose, and safeguard your information 
                 when you visit our website {Identity.url} and use our Pilates services.
               </p>

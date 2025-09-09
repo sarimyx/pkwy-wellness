@@ -32,7 +32,7 @@ export default function Page() {
               Page Not Found
             </h1>
             <p className="text-lg text-amber-700/80 mb-8 max-w-md">
-              The page you're looking for doesn't exist. Let's get you back to your wellness journey with {Identity.companyName}.
+              The page you&apos;re looking for doesn&apos;t exist. Let&apos;s get you back to your wellness journey with {Identity.companyName}.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button

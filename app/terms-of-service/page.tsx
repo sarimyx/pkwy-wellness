@@ -17,7 +17,7 @@ export default function TermsOfService() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-amber-800 mb-4">1. Agreement to Terms</h2>
               <p className="mb-4">
-                By accessing and using the services of {Identity.companyName} ("we," "our," or "us"), 
+                By accessing and using the services of {Identity.companyName} (&apos;we,&apos; &apos;our,&apos; or &apos;us&apos;), 
                 you agree to be bound by these Terms of Service and all applicable laws and regulations. 
                 If you do not agree with any of these terms, you are prohibited from using our services.
               </p>
@@ -131,7 +131,7 @@ export default function TermsOfService() {
                 <li>Maintain appropriate language and behavior</li>
                 <li>Respect studio property and equipment</li>
                 <li>Follow all studio rules and policies</li>
-                <li>Maintain confidentiality of other clients' information</li>
+                <li>Maintain confidentiality of other clients information</li>
               </ul>
             </section>
 
