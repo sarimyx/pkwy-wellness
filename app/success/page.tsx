@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { CheckCircle, Calendar, User, Receipt } from 'lucide-react';
+import { CheckCircle, Calendar, User, Receipt, MapPin, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Identity } from '@/config/identity';
 import Link from 'next/link';
@@ -116,21 +116,21 @@ export default function SuccessPage() {
               <div className="flex items-start gap-3">
                 <Receipt className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">
-                  Confirmation email sent with receipt and class details
+                  Confirmation email sent with receipt and class details. We&apos;ll be in touch with you soon!
                 </span>
               </div>
               <div className="flex items-start gap-3">
-                <Calendar className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                <Building className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">
-                  Check your email for scheduling information
+                  Classes held in an upstairs space at the community center. Participants need to be able to climb two flights of stairs to access the workout area.
                 </span>
               </div>
-              {/* <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">
-                  Classes held at our Pittsburgh studio
+                  Our address is <strong>{Identity.address.complete}</strong> (Google Maps: <a href={Identity.address.googleMaps} target="_blank" className="text-blue-500">Link</a>, Apple Maps: <a href={Identity.address.appleMaps} target="_blank" className="text-blue-500">Link</a>)
                 </span>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
