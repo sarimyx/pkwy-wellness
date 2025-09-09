@@ -4,7 +4,7 @@ import { Identity } from "./identity";
 export const metadata: Metadata = {
     metadataBase: new URL(Identity.url),
     title: "PKWY Wellness | Pilates | Pittsburgh, PA",
-    description: "Transform your body and mind with expert Pilates instruction. Private sessions, group classes, and corporate wellness programs. Serving Pittsburgh and surrounding areas.",
+    description: "Transform your body and mind with expert Pilates instruction. Group classes, private sessions, and wellness programs. Serving Pittsburgh and surrounding areas.",
     keywords: "Pilates Pittsburgh, Pilates studio Pittsburgh PA, Pilates classes Pittsburgh, Pilates instructor Pittsburgh, wellness Pittsburgh, fitness Pittsburgh, Pilates private sessions Pittsburgh, corporate wellness Pittsburgh",
     openGraph: {
         siteName: "PKWY Wellness",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
             default: "PKWY Wellness | Pilates | Pittsburgh, PA",
             template: "%s | PKWY Wellness Pittsburgh",
         },
-        description: "Transform your body and mind with expert Pilates instruction. Private sessions, group classes, and corporate wellness programs. Serving Pittsburgh and surrounding areas.",
+        description: "Transform your body and mind with expert Pilates instruction. Group classes, private sessions, and wellness programs. Serving Pittsburgh and surrounding areas.",
         url: Identity.url,
         images: ["/branding/logo.png"],
         locale: "en_US",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "PKWY Wellness | Pilates | Pittsburgh, PA",
-        description: "Expert instruction, private sessions, and group classes.",
+        description: "Expert instruction, group classes, and private sessions.",
         images: ["/branding/logo.png"],
     },
     alternates: {
