@@ -241,7 +241,20 @@ export function Pricing() {
                         </div>
                     </div>
 
-                    {/* Payment Methods Section */}
+                    {/* Please Note Section */}
+                    <div className="text-center mt-6 px-20">
+                        <p className='text-lg font-semibold text-amber-900'>Please Note</p>
+                        <div className="space-y-2">
+                            <p className="text-gray-600 text-sm">
+                                Classes will be held in an upstairs space at the community center.
+                                Participants need to be able to climb two flights of stairs to access the workout area.
+                            </p>
+                            <p className="text-gray-600 text-sm">
+                                Our address is {Identity.address.complete}
+                            </p>
+                        </div>
+                    </div>
+
                     {/* Payment Methods Section */}
                     <div className="text-center mt-6 space-y-2">
                         <div className="flex justify-center items-center space-x-2">
@@ -266,7 +279,7 @@ export function Pricing() {
                                     Questions?
                                 </h3>
                                 <p className="text-gray-600">
-                                    Have questions about our Pilates classes or need help choosing the right option for you?
+                                    Have questions or need help choosing the right option for you?
                                 </p>
                             </div>
                             <a
