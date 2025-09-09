@@ -242,7 +242,7 @@ export function Pricing() {
                     </div>
 
                     {/* Please Note Section */}
-                    <div className="text-center mt-6 px-20">
+                    <div className="text-center mt-6 px-10 md:px-20">
                         <p className='text-lg font-semibold text-amber-900'>Please Note</p>
                         <div className="space-y-2">
                             <p className="text-gray-600 text-sm">
