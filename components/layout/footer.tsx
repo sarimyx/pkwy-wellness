@@ -18,11 +18,21 @@ export function Footer() {
               height={40}
               className="opacity-80"
             />
-          </div>
-          <div className="flex items-center space-x-4">
             <p className="text-amber-100">
               © 2025 {Identity.companyName}
             </p>
+          </div>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 text-amber-200/80">
+              <a href="/privacy-policy" className="hover:text-amber-100 transition-colors">
+                Privacy Policy
+              </a>
+              <span>•</span>
+              <a href="/terms-of-service" className="hover:text-amber-100 transition-colors">
+                Terms of Service
+              </a>
+            </div>
+
             <div className="flex space-x-2">
               <div className="w-1.5 h-1.5 bg-amber-400/50 rounded-full animate-pulse"></div>
               <div className="w-1.5 h-1.5 bg-yellow-400/50 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
