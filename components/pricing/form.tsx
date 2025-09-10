@@ -9,6 +9,7 @@ import { Identity } from '@/config/identity';
 import { Separator } from '../decoration/separator';
 import Image from 'next/image';
 import { Amex, Applepay, Discover, Mastercard, Visa } from 'react-pay-icons';
+import { CheckoutButton } from './checkout-button';
 
 export function Pricing() {
     const packages = getAllPackageMetadata();
@@ -18,38 +19,6 @@ export function Pricing() {
         return `$${(priceInCents / 100).toFixed(0)}`;
     };
 
-    const handleCheckout = async (packageId: string) => {
-        // Get the complete package metadata
-        const packageData = packages.find(pkg => pkg.id === packageId);
-
-        if (!packageData) {
-            alert('Package not found. Please try again.');
-            return;
-        }
-
-        try {
-            const response = await fetch('/api/create-checkout-session', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    packageId,
-                    packageData, // Send complete package metadata
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to create checkout session');
-            }
-
-            const { url } = await response.json();
-            window.location.href = url;
-        } catch (error) {
-            console.error('Error creating checkout session:', error);
-            alert('Something went wrong. Please try again.');
-        }
-    };
 
     return (
         <main id="pricing" >
@@ -185,7 +154,6 @@ export function Pricing() {
                         </header>
 
                         <div className="flex justify-center">
-
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl place-items-stretch">
                                 {packages.map((pkg) => (
                                     <article
@@ -225,15 +193,16 @@ export function Pricing() {
                                         </ul>
 
                                         <div className="pt-8">
-                                            <Button
-                                                onClick={() => handleCheckout(pkg.id)}
+                                            <CheckoutButton
+                                                packageId={pkg.id}
+                                                popular={pkg.id === '6-week-early-bird'}
                                                 className={`${Fonts.poppins.className} hover:brightness-110 w-full font-semibold ${pkg.id === '6-week-early-bird'
                                                     ? 'bg-gradient-to-r from-amber-900 to-amber-700'
                                                     : 'bg-gradient-to-r from-amber-800 to-amber-900'
                                                     }`}
                                             >
                                                 Purchase
-                                            </Button>
+                                            </CheckoutButton>
                                         </div>
                                     </article>
                                 ))}
