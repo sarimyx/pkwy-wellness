@@ -126,7 +126,7 @@ export default function SuccessPage() {
                 </span>
               </div>
               <div className="flex items-start gap-3">
-                <Timer className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                <Timer className="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">
                   Classes are planned for Sundays at 10:00 AM and will run for 45 minutes. We can’t wait to move, breathe, and flow with you in this series!
                 </span>
