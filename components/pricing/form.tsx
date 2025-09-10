@@ -215,10 +215,7 @@ export function Pricing() {
                         <p className='text-lg font-semibold text-amber-900'>Please Note</p>
                         <div className="space-y-2">
                             <p className="text-gray-600 text-sm">
-                                <strong>Classes will be held in an upstairs space at the community center.</strong> {" "} Participants need to be able to climb two flights of stairs to access the workout area.
-                            </p>
-                            <p className="text-gray-600 text-sm">
-                                Classes are planned for Sundays at 10:00 AM and will run for 45 minutes. We can’t wait to move, breathe, and flow with you in this series!
+                                <strong>Classes will be held in an upstairs space at the community center.</strong> {" "} Participants need to be able to climb two flights of stairs to access the workout area. Classes are planned for Sundays at 10:00 AM and will run for 45 minutes.
                             </p>
                             <p className="text-gray-600 text-sm">
                                 Our address is <strong>{Identity.address.complete}</strong> (Google Maps: <a href={Identity.address.googleMaps} target="_blank" className="text-blue-500">Link</a>, Apple Maps: <a href={Identity.address.appleMaps} target="_blank" className="text-blue-500">Link</a>)
