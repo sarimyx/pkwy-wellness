@@ -116,7 +116,7 @@ export default function SuccessPage() {
               <div className="flex items-start gap-3">
                 <Receipt className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">
-                  Confirmation email sent with receipt and class details. We&apos;ll be in touch with you soon!
+                  You’re in! A confirmation email with your receipt has been sent. As soon as we hit 19 amazing women signed up, we’ll send out the full class details. We can’t wait to share this series with you!
                 </span>
               </div>
               <div className="flex items-start gap-3">
