@@ -126,6 +126,12 @@ export default function SuccessPage() {
                 </span>
               </div>
               <div className="flex items-start gap-3">
+                <Building className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700">
+                  Classes are planned for Sundays at 10:00 AM and will run for 45 minutes. We can’t wait to move, breathe, and flow with you in this series!
+                </span>
+              </div>
+              <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">
                   Our address is <strong>{Identity.address.complete}</strong> (Google Maps: <a href={Identity.address.googleMaps} target="_blank" className="text-blue-500">Link</a>, Apple Maps: <a href={Identity.address.appleMaps} target="_blank" className="text-blue-500">Link</a>)
