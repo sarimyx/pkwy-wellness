@@ -24,8 +24,8 @@ export const packageMetadata: PackageMetadata[] = [
     displayName: '6 Classes',
     subtitle: '6-Week Series',
     classes: 6,
-    price: 10000, // $100.00 in cents
-    previousPrice: 11500, // $115.00 in cents (regular price)
+    price: 11500, // $100.00 in cents
+    // previousPrice: 11500,
     features: [
       'Limited time offer',
       'Expert Pilates instruction',
@@ -38,23 +38,6 @@ export const packageMetadata: PackageMetadata[] = [
     tagColor: 'bg-amber-900',
     popular: true,
     sortOrder: 1
-  },
-  // Future packages - set active: true when ready to launch
-  {
-    id: '6-week-regular',
-    category: '6-week-flow',
-    displayName: '6-Week Flow for EveryBODY (Regular)',
-    classes: 6,
-    price: 11500, // $115.00 in cents
-    features: [
-      '6-week women\'s series',
-      'Expert Pilates instruction',
-      'Flow-based movement patterns',
-      'Community support',
-      '$115 after early bird period'
-    ],
-    active: false, // Hidden for now - set to true when early bird ends
-    sortOrder: 2
   },
   {
     id: '6-week-drop-in',
