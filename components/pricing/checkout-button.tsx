@@ -23,7 +23,7 @@ export function CheckoutButton({ packageId, disabled, popular, className, childr
     // Use setTimeout to ensure the loading state renders before starting the process
     setTimeout(async () => {
       try {
-        const fakeDelay = Math.random() * 1000 + 1000; // Random delay between 1-2 seconds
+        const fakeDelay = Math.random() * 500; // Random delay between 1-2 seconds
         await new Promise(resolve => setTimeout(resolve, fakeDelay));
 
         const response = await fetch('/api/create-checkout-session', {
