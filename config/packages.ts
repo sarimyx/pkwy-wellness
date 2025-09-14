@@ -19,7 +19,7 @@ export interface PackageMetadata {
 // Active packages - easily toggle visibility with the 'active' boolean
 export const packageMetadata: PackageMetadata[] = [
   {
-    id: '6-week-early-bird',
+    id: '6-week-flow',
     category: '6-week-flow',
     displayName: '6 Classes',
     subtitle: '6-Week Series',
