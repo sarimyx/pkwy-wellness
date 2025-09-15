@@ -116,19 +116,19 @@ export default function SuccessPage() {
               <div className="flex items-start gap-3">
                 <Receipt className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">
-                  You’re in! A confirmation email with your receipt has been sent. As soon as we hit 19 amazing women signed up, we’ll send out the full class details. We can’t wait to share this series with you!
+                  You’re in! A confirmation email with your receipt has been sent.
+                </span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Timer className="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700">
+                  <strong>Our start date is on October 5th, 2025.</strong> Classes are planned for Sundays at 10:00 AM and will run for 45 minutes. We can’t wait to move, breathe, and flow with you in this series!
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <Building className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">
                   Classes held in an upstairs space at the community center. Participants need to be able to climb two flights of stairs to access the workout area.
-                </span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Timer className="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-700">
-                  Classes are planned for Sundays at 10:00 AM and will run for 45 minutes. We can’t wait to move, breathe, and flow with you in this series!
                 </span>
               </div>
               <div className="flex items-start gap-3">
@@ -150,7 +150,7 @@ export default function SuccessPage() {
           </Link>
           <a href={Identity.social.instagram} className="w-full sm:w-auto">
             <Button variant="outline" className="w-full px-6 sm:px-8 py-3 text-sm sm:text-base">
-              Contact Us
+              Contact
             </Button>
           </a>
         </div>
